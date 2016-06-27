@@ -134,7 +134,7 @@ class Request extends EventEmitter {
     }
 
     json(object) {
-        const data = Buffer.from(qs.stringify(object));
+        const data = Buffer.from(JSON.stringify(object));
         return this.headers({"Content-Type": "application/json", "Content-Length": data.byteLength}).send(data);
     }
 }
