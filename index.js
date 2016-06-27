@@ -65,7 +65,7 @@ class Request extends EventEmitter {
         return this;
     }
 
-    option(key, value) {
+    option(key, val) {
         this.options[key] = val;
         return this;
     }
@@ -140,8 +140,8 @@ class Request extends EventEmitter {
     }
 
     json(object) {
-        const data = qs.stringify(object);
-        return this.headers({"Content-Type": "x-www-form-urlencoded", "Content-Length": data.length}).send(data);
+        const data = Buffer.from(qs.stringify(object));
+        return this.headers({"Content-Type": "application/json", "Content-Length": data.byteLength}).send(data);
     }
 }
 
