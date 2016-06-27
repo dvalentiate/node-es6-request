@@ -65,7 +65,7 @@ class Request extends EventEmitter {
         return this;
     }
 
-    option(key, value) {
+    option(key, val) {
         this.options[key] = val;
         return this;
     }
